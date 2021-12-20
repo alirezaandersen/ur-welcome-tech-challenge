@@ -7,14 +7,14 @@ class MessageGroupGenerator
   end
 
   def call
-    converstation_exist?
+    conversation_exist?
     related_messages
     @chats
   end
 
   private
 
-  def converstation_exist?
+  def conversation_exist?
     chat_room = ConversationRoom.find_by(id: @conversation_room_id)
     raise(StandardError, message: 'Conversation Room does not exist', code: 404 ) unless chat_room.present?
   end
